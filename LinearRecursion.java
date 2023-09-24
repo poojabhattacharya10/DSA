@@ -14,6 +14,6 @@ public class LinearRecursion {
 
     public static void main(String[] args) {
         int n = 5;
-        show(5);
+        show(n);
     }
 }
