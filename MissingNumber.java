@@ -1,24 +1,29 @@
-import java.util.Arrays;
+package Hashmap;
+
+// public class MissingNumber {
+    
+// }
+
+import java.util.HashMap;
 
 public class MissingNumber {
 
-    static int approach1(int arr[] , int k){
-        Arrays.sort(arr);
-        if(arr[arr.length-1]!=k){
-            return k;
+    static int findNum(int arr[]){
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for(int element : arr){
+            map.put(element, map.getOrDefault(element, 0) + 1);
         }
-        for(int i=0; i<arr.length ; i++){
-            if(arr[i] != i+1){
-                return i+1;
+
+        // Check if number is present or not in the array
+        for(int i=1;i<=arr.length+1;i++){
+            if(!map.containsKey(i) || map.get(i) == 0){
+                return i;
             }
         }
-        return 0;
+        return -1;
     }
-
     public static void main(String[] args) {
-       int arr[] = {2,1,4,5};
-       int ans = approach1(arr,5);
-       System.out.println(ans);        
+        
     }
 }
- 
